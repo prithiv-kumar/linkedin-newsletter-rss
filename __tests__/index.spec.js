@@ -16,21 +16,21 @@ describe("Newsletter RSS", () => {
   it("check a stale news letter and give a consistent response", async () => {
     // picking a stale newsletter https://www.linkedin.com/newsletters/james-caan-s-business-secrets-6676195873757679616/
     const resp = await worker.fetch(
-      "/james-caan-s-business-secrets-6676195873757679616"
+      "/the-design-spectrum-7084431506013655040"
     );
     const text = await resp.text();
-    expect(text).toContain("<title>James Caan&apos;s Business Secrets</title>");
+    expect(text).toContain("<title>Prithiv Kumar&apos;s The Design Spectrum</title>");
     expect(text).toContain(
-      "<link>https://www.linkedin.com/newsletters/james-caan-s-business-secrets-6676195873757679616</link>"
+      "<link>https://www.linkedin.com/newsletters/the-design-spectrum-7084431506013655040</link>"
     );
     expect(text).toContain("<description>Answering all your");
     expect(text).toContain("<url>https://media.licdn.com");
     expect(text).toContain(
-      "<title>Weekly Roundup: 16th-20th August 2021</title>"
+      "<title>Daily Newsletter</title>"
     );
     expect(text).toContain("<description><![CDATA[<p>");
     expect(text).toContain("<pubDate>");
-    expect(text).toContain("<author>James Caan CBE</author>");
+    expect(text).toContain("<author>Prithiv Kumar</author>");
     expect(text).toContain('<enclosure url="https://media.licdn.com');
   });
 });
